@@ -5,6 +5,7 @@ const request = require('request')
 const geocode= require('./utils/geocode')
 const forecast= require('./utils/forecast')
 const app = express()
+const port= process.env.PORT || 3000
 
 //Set up paths
 const publicDirectory = path.join(__dirname,'../public')
@@ -14,9 +15,6 @@ const partialsPath = path.join(__dirname,'../templates/partials')
 console.log(publicDirectory);
 console.log(viewsPath);
 console.log(partialsPath);
-
-
-
 
 //Setup engines
 
@@ -84,6 +82,6 @@ app.get('/weather', (req,res)=>{
 //app.use(express.static(publicDirectory))
   
 
-app.listen(3000,()=>{
+app.listen(port,()=>{
     console.log("The server is up and running...")
 })
